@@ -95,11 +95,17 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 .fh5co-nav #fh5co-logo {
-  font-size: 25px;
+  font-family: "Rouge Script", cursive;
+  font-size: 34px;
+  font-weight: 400;
+  font-style: normal;
   margin: 0;
   padding: 0;
-  line-height: 40px;
-  font-family: "Roboto", sans-serif;
+  line-height: 1.2;
+}
+.fh5co-nav #fh5co-logo a {
+  color: #fff;
+  text-decoration: none;
 }
 .fh5co-nav a {
   padding: 5px 10px;
@@ -782,8 +788,8 @@ form label {
 #fh5co-counter .display-tc h2,
 .fh5co-cover .display-tc h2 {
   font-size: 20px;
-  line-height: 1.5;
-  margin-bottom: 30px;
+  margin-top: 15px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
 }
 @media screen and (max-width: 480px) {
   #fh5co-header .display-tc h2,
@@ -1096,9 +1102,10 @@ form label {
   font-size: 60px;
   margin-bottom: 10px;
   line-height: 1.5;
-  font-weight: bold;
+  font-weight: 400;
   color: #F14E95;
-  font-family: "Sacramento", Arial, serif;
+  font-family: "Rouge Script", cursive;
+  font-style: normal;
 }
 @media screen and (max-width: 768px) {
   .fh5co-heading h2 {
@@ -1732,4 +1739,23 @@ form label {
   font-size: 1.2rem;     /* Slightly bigger */
   font-weight: 600;      /* Slightly bolder (use 700 for boldest) */
   color: #000000;        /* Pure black */
+}
+
+#fh5co-couple .fh5co-heading h2 {
+  font-size: 50px;
+  font-family: 'Playfair Display', serif;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+#fh5co-couple .col-md-8.col-md-offset-2.text-center.fh5co-heading.animate-box h2 {
+  font-size: 50px;
+  font-family: "Rouge Script", cursive;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-style: normal;
 }
