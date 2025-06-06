@@ -49,8 +49,14 @@
 	
 	</head>
 	<body>
+		<div class="cinematic-intro">
+			<div class="cinematic-content">
+				<div class="cinematic-title">Harith & Farah</div>
+				<div class="cinematic-tagline">It all started with ‘do you want to makan?’</div>
+			</div>
+		</div>
 		
-	<div class="fh5co-loader"></div>
+		<div class="fh5co-loader"></div>
 	
 	<div id="page">
 		<nav class="fh5co-nav" role="navigation">
@@ -520,6 +526,23 @@ days
 	window.addEventListener('load', adjustCardSize);
 	window.addEventListener('resize', adjustCardSize);
   </script>
+
+	<script>
+		// Cinematic Intro Animation
+		document.addEventListener('DOMContentLoaded', function() {
+			const intro = document.querySelector('.cinematic-intro');
+			const audio = document.getElementById('bg-music');
+			const musicBtn = document.getElementById('music-btn');
+			
+			// Fade out intro after 5 seconds
+			setTimeout(() => {
+				intro.classList.add('fade-out');
+				// Start music when intro fades out
+				audio.play();
+				musicBtn.textContent = 'Pause Music';
+			}, 5000);
+		});
+	</script>
 	</body>
 </html>
 
