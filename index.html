@@ -27,6 +27,9 @@
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 
+	<!-- Add Leaflet CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
 	<style>
 		@media (max-width: 768px) {
 		  #fh5co-event .row {
@@ -52,7 +55,7 @@
 		<div class="cinematic-intro">
 			<div class="cinematic-content">
 				<div class="cinematic-title">Harith & Farah</div>
-				<div class="cinematic-tagline">It all started with ‘do you want to makan?’</div>
+				<div class="cinematic-tagline">It all started with 'do you want to makan?'</div>
 			</div>
 		</div>
 		
@@ -348,6 +351,26 @@
 		</div>
 	</div>
 
+	<!-- Insert Interactive Map --> 
+	<div id="fh5co-map" class="fh5co-bg" style="background-color: #f0f7ff !important; background-image: none !important; padding: 60px 0;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<span style="font-size: 25px;">Book Your Stay</span>
+					<h2 style="font-size: 50px;">Nearby Hotels</h2>
+					<p style="color: black;">Recommended Accommodations for Our Guests near reception</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div id="map" style="height: 500px; width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"></div>
+				</div>
+			</div>
+		
+	<!-- Add Leaflet JavaScript -->
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<script src="js/map.js"></script>
+
 	<div id="fh5co-event" class="fh5co-bg" style="background-color: #f0f7ff !important; background-image: none !important; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
 		<div class="container" style="max-width: 1140px; width: 100%; padding: 0 15px;">
 		  <div class="row">
@@ -421,7 +444,9 @@
 			</div>
 		  </div>
 		</div>
-	  </div>
+	  </div> 
+
+	  <!-- Insert FAQ -->
 
 	  <!-- Credit Section -->
 		<footer id="fh5co-credit" style="background-color: #f0f7ff; padding: 40px 20px; text-align: center;">
