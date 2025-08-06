@@ -1532,13 +1532,6 @@ form label {
 }
 
 
-
-#fh5co-event {
-  background-color: white !important; /* Ensuring background is white */
-  background-image: none !important; /* Removing any background image */
-  padding: 50px 0; /* Optional: Adjust for spacing */
-}
-
 .fh5co-heading {
   color: #333; /* Heading color set to black */
 }
@@ -1664,6 +1657,51 @@ form label {
   color: #000000;        /* Pure black */
 }
 
+#fh5co-couple {
+  background-image: url('../HarFar-BG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 80px 0;
+}
+
+#fh5co-couple-story {
+  background-image: url('../HarFar-BG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 80px 0;
+}
+
+#fh5co-map {
+  background-image: url('../HarFar-BG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 60px 0;
+}
+
+#fh5co-event {
+  background-image: url('../HarFar-BG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 50px 0;
+}
+
+#fh5co-credit {
+  background-image: url('../HarFar-BG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 40px 20px;
+}
+
 #fh5co-couple .fh5co-heading h2 {
   font-size: 50px;
   font-family: 'Playfair Display', serif;
@@ -1709,7 +1747,7 @@ form label {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
   z-index: 9999;
   display: flex;
   flex-direction: column;
@@ -1717,6 +1755,7 @@ form label {
   align-items: center;
   opacity: 1;
   transition: opacity 2s ease-in-out;
+  overflow: hidden;
 }
 
 .cinematic-intro.fade-out {
@@ -1724,30 +1763,48 @@ form label {
   pointer-events: none;
 }
 
+.cinematic-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 100%);
+  animation: backgroundFadeIn 3s ease-out;
+}
+
+@keyframes backgroundFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .cinematic-content {
   text-align: center;
   color: white;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 2s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
-.cinematic-title {
-  font-family: "Rouge Script", cursive;
+#intro {
+  font-family: "Great Vibes", cursive;
   font-size: 72px;
-  margin-bottom: 20px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-.cinematic-tagline {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  font-style: italic;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  line-height: 1.2;
+  text-align: center;
   opacity: 0;
-  animation: fadeInUp 2s ease-out 1s forwards;
+  animation: fadeIn 1s ease-out 0.5s forwards;
 }
 
-@keyframes fadeInUp {
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -1755,5 +1812,18 @@ form label {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #intro {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  #intro {
+    font-size: 50px;
   }
 }

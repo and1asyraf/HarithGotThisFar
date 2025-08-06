@@ -15,8 +15,10 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Rouge+Script&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
 	<script src="https://cdn.jsdelivr.net/npm/simply-countdown@1.4.0/dist/simplyCountdown.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.js"></script>
 	
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/icomoon.css">
@@ -53,9 +55,9 @@
 	</head>
 	<body>
 		<div class="cinematic-intro">
+			<div class="cinematic-background"></div>
 			<div class="cinematic-content">
-				<div class="cinematic-title">Harith & Farah</div>
-				<div class="cinematic-tagline">It all started with 'do you want to makan?'</div>
+				<div id="intro"></div>
 			</div>
 		</div>
 		
@@ -352,7 +354,7 @@
 	</div>
 
 	<!-- Insert Interactive Map --> 
-	<div id="fh5co-map" class="fh5co-bg" style="background-color: #f0f7ff !important; background-image: none !important; padding: 60px 0;">
+	<div id="fh5co-map" class="fh5co-bg" style="padding: 60px 0;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
@@ -371,8 +373,7 @@
 	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 	<script src="js/map.js"></script>
 
-	<div id="fh5co-event" class="fh5co-bg" style="background-color: #f0f7ff !important; background-image: none !important; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
-		<div class="container" style="max-width: 1140px; width: 100%; padding: 0 15px;">
+	<div id="fh5co-event" class="fh5co-bg" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
 		  <div class="row">
 			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 				<span style="color: black; font-size: 25px;">Places of Recommendation</span>
@@ -425,12 +426,11 @@
 	  
 		  </div>
 		</div>
-	  </div>
 
 	  <!-- Insert FAQ -->
 
 	  <!-- Credit Section -->
-		<footer id="fh5co-credit" style="background-color: #f0f7ff; padding: 40px 20px; text-align: center;">
+		<footer id="fh5co-credit" style="padding: 40px 20px; text-align: center;">
 			<div style="max-width: 400px; margin: 0 auto;">
 			<img src="my-pic.jpg" alt="Developer Photo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.2); margin-bottom: 20px;">
 			<p style="font-size: 18px; color: #333; font-weight: 500;">
@@ -534,19 +534,34 @@ days
   </script>
 
 	<script>
-		// Cinematic Intro Animation
+		// Cinematic Intro Animation with TypeIt.js
 		document.addEventListener('DOMContentLoaded', function() {
 			const intro = document.querySelector('.cinematic-intro');
+			const introText = document.getElementById('intro');
 			const audio = document.getElementById('bg-music');
 			const musicBtn = document.getElementById('music-btn');
 			
-			// Fade out intro after 5 seconds
-			setTimeout(() => {
-				intro.classList.add('fade-out');
-				// Start music when intro fades out
-				audio.play();
-				musicBtn.textContent = 'Pause Music';
-			}, 5000);
+			// Initialize TypeIt animation with exact timing sequence
+			new TypeIt(introText, {
+				strings: ["Harith", " + ", "Farah"],
+				speed: 80,
+				waitUntilVisible: true,
+				startDelay: 500,
+				afterString: function() {
+					// Add 700ms pause between each string
+					return new Promise(resolve => setTimeout(resolve, 700));
+				},
+				afterComplete: function() {
+					// Fade out intro after animation completes
+					setTimeout(() => {
+						intro.classList.add('fade-out');
+						// Start music when intro fades out
+						audio.play();
+						musicBtn.textContent = 'Pause Music';
+					}, 1000);
+				}
+			})
+			.go();
 		});
 	</script>
 	</body>
