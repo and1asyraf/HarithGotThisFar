@@ -914,7 +914,6 @@ form label {
   /* words */
 }
 
-#fh5co-testimonial,
 #fh5co-services,
 #fh5co-started,
 #fh5co-footer,
@@ -926,7 +925,6 @@ form label {
   clear: both;
 }
 @media screen and (max-width: 768px) {
-  #fh5co-testimonial,
   #fh5co-services,
   #fh5co-started,
   #fh5co-footer,
@@ -1125,77 +1123,7 @@ form label {
   color: rgba(0, 0, 0, 0.4);
 }
 
-#fh5co-testimonial .wrap-testimony {
-  position: relative;
-}
-#fh5co-testimonial .wrap-testimony .testimony-slide {
-  text-align: center;
-}
-#fh5co-testimonial .wrap-testimony .testimony-slide span {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
-  display: block;
-}
-#fh5co-testimonial .wrap-testimony .testimony-slide span a.twitter {
-  color: #F14E95;
-  font-weight: 300;
-}
-#fh5co-testimonial .wrap-testimony .testimony-slide figure {
-  margin-bottom: 10px;
-  display: -moz-inline-stack;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  width: 100px;
-  height: 100px;
-}
-#fh5co-testimonial .wrap-testimony .testimony-slide figure img {
-  width: 100px;
-  height: 100px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-}
-#fh5co-testimonial .wrap-testimony .testimony-slide blockquote {
-  border: none;
-  margin: 30px auto;
-  width: 50%;
-  position: relative;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
-}
-@media screen and (max-width: 992px) {
-  #fh5co-testimonial .wrap-testimony .testimony-slide blockquote {
-    width: 100%;
-  }
-}
-#fh5co-testimonial .wrap-testimony .testimony-slide blockquote p {
-  font-style: italic;
-  color: #8f989f;
-  font-size: 20px;
-  line-height: 1.6em;
-}
-#fh5co-testimonial .wrap-testimony .testimony-slide.active {
-  display: block;
-}
-#fh5co-testimonial .wrap-testimony .arrow-thumb {
-  position: absolute;
-  top: 40%;
-  display: block;
-  width: 100%;
-}
-#fh5co-testimonial .wrap-testimony .arrow-thumb a {
-  font-size: 32px;
-  color: #dadada;
-}
-#fh5co-testimonial .wrap-testimony .arrow-thumb a:hover, #fh5co-testimonial .wrap-testimony .arrow-thumb a:focus, #fh5co-testimonial .wrap-testimony .arrow-thumb a:active {
-  text-decoration: none;
-}
+
 
 .feature-left {
   float: left;
@@ -1603,12 +1531,7 @@ form label {
   }
 }
 
-#fh5co-testimonial iframe {
-  border: none;
-  width: 100%;
-  height: 600px;
-  max-width: 100%;
-}
+
 
 #fh5co-event {
   background-color: white !important; /* Ensuring background is white */
@@ -1760,6 +1683,26 @@ form label {
   font-style: normal;
 }
 
+/* Music Button Styles */
+#music-btn {
+  padding: 5px 10px;
+  background: linear-gradient(135deg, #c7cbce, #99acb3);
+  color: rgb(26, 25, 25);
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#music-btn:hover {
+  background: linear-gradient(135deg, #99acb3, #c7cbce);
+  transform: translateY(-2px);
+}
+
+/* Cinematic Intro Styles */
 .cinematic-intro {
   position: fixed;
   top: 0;
