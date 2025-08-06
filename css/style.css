@@ -1702,6 +1702,11 @@ form label {
   padding: 40px 20px;
 }
 
+/* Reduce spacing between heading and map in the map section */
+#fh5co-map .fh5co-heading {
+  margin-bottom: -1.5em;
+}
+
 #fh5co-couple .fh5co-heading h2 {
   font-size: 50px;
   font-family: 'Playfair Display', serif;
