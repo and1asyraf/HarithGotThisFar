@@ -94,15 +94,93 @@
 				const audio = document.getElementById('bg-music');
 				const musicBtn = document.getElementById('music-btn');
 			  
-				function toggleMusic() {
-				  if (audio.paused) {
-					audio.play();
-					musicBtn.textContent = 'Pause Music';
-				  } else {
-					audio.pause();
-					musicBtn.textContent = 'Play Music';
-				  }
+				// Global variables for continuous auto-scroll functionality
+				let autoScrollInterval;
+				let isAutoScrolling = false;
+				let userScrolling = false;
+				let scrollTimeout;
+				
+				function startAutoScroll() {
+					if (isAutoScrolling) return;
+					
+					isAutoScrolling = true;
+					const scrollSpeed = 200; // pixels per second (adjust for speed)
+					const frameRate = 60; // frames per second
+					
+					autoScrollInterval = setInterval(() => {
+						const currentScroll = window.pageYOffset;
+						const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+						
+						// If we haven't reached the bottom, continue scrolling
+						if (currentScroll < maxScroll) {
+							window.scrollBy(0, scrollSpeed / frameRate);
+						} else {
+							// When we reach the bottom, stop auto-scrolling
+							stopAutoScroll();
+						}
+					}, 1000 / frameRate); // 60 FPS
 				}
+				
+				function stopAutoScroll() {
+					if (autoScrollInterval) {
+						clearInterval(autoScrollInterval);
+						autoScrollInterval = null;
+					}
+					isAutoScrolling = false;
+				}
+				
+				function toggleMusic() {
+					if (audio.paused) {
+						audio.play();
+						musicBtn.textContent = 'Pause Music';
+						// Start auto-scrolling when music starts
+						setTimeout(() => {
+							startAutoScroll();
+						}, 1000); // Small delay to let music start
+					} else {
+						audio.pause();
+						musicBtn.textContent = 'Play Music';
+						// Stop auto-scrolling when music stops
+						stopAutoScroll();
+					}
+				}
+				
+				// Listen for music end to restart auto-scroll
+				audio.addEventListener('ended', function() {
+					// When music ends, restart from beginning and continue scrolling
+					this.currentTime = 0;
+					this.play();
+					// Reset scroll to top and restart auto-scroll
+					window.scrollTo({
+						top: 0,
+						behavior: 'smooth'
+					});
+					setTimeout(() => {
+						startAutoScroll();
+					}, 1000);
+				});
+				
+				// Pause auto-scroll when user manually scrolls
+				window.addEventListener('scroll', function() {
+					if (!userScrolling) {
+						userScrolling = true;
+						stopAutoScroll();
+					}
+					
+					// Clear existing timeout
+					if (scrollTimeout) {
+						clearTimeout(scrollTimeout);
+					}
+					
+					// Resume auto-scroll after user stops scrolling for 3 seconds
+					scrollTimeout = setTimeout(() => {
+						userScrolling = false;
+						const audio = document.getElementById('bg-music');
+						if (!audio.paused) {
+							startAutoScroll();
+						}
+					}, 3000);
+				});
 			  </script>
 		  </nav>
 		  
@@ -385,7 +463,14 @@
 			<!-- CARD 1 -->
 			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
 				<h3 style="color: black;">Gaya Street Night Market</h3>
-				<p style="color: black;">A bustling street market offering local food, handmade goods, and unique souvenirs every Sunday.</p>
+				<p style="color: black;">A bustling street market offering local food, handmade goods, and viral foods every Friday and Saturday night.</p>
+				<a href="https://www.google.com/maps?q=Gaya+Street+Night+Market,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
+			  </div>
+
+			  <!-- CARD 1 -->
+			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
+				<h3 style="color: black;">Gaya Street Sunday Market</h3>
+				<p style="color: black;">A bustling street market offering local food, handmade goods, and unique souvenirs every Sunday morning.</p>
 				<a href="https://www.google.com/maps?q=Gaya+Street+Night+Market,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
 			  </div>
 	  
@@ -399,15 +484,15 @@
 			<!-- CARD 3 -->
 			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
 				<h3 style="color: black;">Fatt Kee</h3>
-				<p style="color: black;">A popular restaurant known for its delicious roasted meats and local Chinese dishes.</p>
+				<p style="color: black;">A popular restaurant known for its delicious fish soup, roasted meats and local Chinese dishes.</p>
 				<a href="https://www.google.com/maps?q=Fatt+Kee,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
 			</div>
 			
 			<!-- CARD 4 -->
 			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
-				<h3 style="color: black;">Saya Street Sunday Market</h3>
-				<p style="color: black;">A vibrant street market offering fresh produce, snacks, and local crafts, held every Sunday.</p>
-				<a href="https://www.google.com/maps?q=Saya+Street+Sunday+Market,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
+				<h3 style="color: black;">Handicraft Market</h3>
+				<p style="color: black;">A bustling marketplac eoffering local handicrafts, souvenirs, textiles, pearls, and traditional goods, popular with both tourists and locals for authentic keepsakes.</p>
+				<a href="https://www.google.com/maps/place/Handicraft+Market/@5.9803681,116.0685563,17z/data=!4m10!1m2!2m1!1sHandicraft+Market!3m6!1s0x323b698e19648a97:0x9ea986320b1b2738!8m2!3d5.981244!4d116.0717725!15sChFIYW5kaWNyYWZ0IE1hcmtldFoTIhFoYW5kaWNyYWZ0IG1hcmtldJIBDG5pZ2h0X21hcmtldJoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSWGMzSjZlakYzUlJBQqoBORABMh4QASIaxB4cgp0mVkDOaKyq74pptO_z1kcyY0yDZysyFRACIhFoYW5kaWNyYWZ0IG1hcmtldOABAPoBBAgAEEw!16s%2Fg%2F11bwf79sm3?entry=ttu&g_ep=EgoyMDI1MDgwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-primary">Get Directions</a>
 			</div>
 			
 			<!-- CARD 5 -->
@@ -423,7 +508,6 @@
 				<p style="color: black;">A cultural village in the rainforest showcasing traditional houses, food, and dances of Sabah's ethnic tribes.</p>
 				<a href="https://www.google.com/maps?q=Mari+Mari+Cultural+Village+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
 			</div>
-	  
 		  </div>
 		</div>
 
@@ -564,6 +648,8 @@ days
 			.go();
 		});
 	</script>
+
+
 	</body>
 </html>
 
