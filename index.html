@@ -16,6 +16,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Rouge+Script&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Kapakana:wght@400&display=swap" rel="stylesheet">
 
 	<script src="https://cdn.jsdelivr.net/npm/simply-countdown@1.4.0/dist/simplyCountdown.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.js"></script>
@@ -44,6 +45,47 @@
 			max-width: 300px;
 			margin-bottom: 20px;
 		  }
+		  /* Mobile font size for h1 title */
+		  #fh5co-header h1 {
+			font-size: 80px !important;
+		  }
+		  /* Mobile positioning for header content */
+		  #fh5co-header .display-tc {
+			margin-top: -200px !important;
+		  }
+		  /* Target the specific div containing the title */
+		  #fh5co-header div[style*="margin-top: -50px"] {
+			margin-top: -200px !important;
+		  }
+		  /* Target the countdown container */
+		  #fh5co-header #countdown {
+			margin-top: 10px !important;
+		  }
+		  /* Additional targeting for the title container */
+		  #fh5co-header .display-tc > div {
+			margin-top: -200px !important;
+		  }
+		  /* Mobile countdown spacing */
+		  #fh5co-header .countdown-item div {
+			margin-top: 2px !important;
+		  }
+		  /* Mobile cinematic intro sizing */ 
+		  #intro {
+			font-size: 2.0em !important;
+		  }
+		  #strokes-text {
+			font-size: 0.6em !important;
+		  }
+		  /* Mobile countdown sizing */
+		  #countdown {
+			font-size: 18px !important;
+		  }
+		  #countdown .countdown-item {
+			font-size: 32px !important;
+		  }
+		  #countdown .countdown-item div {
+			font-size: 16px !important;
+		  }
 		}
 	  </style>
 
@@ -57,7 +99,8 @@
 		<div class="cinematic-intro">
 			<div class="cinematic-background"></div>
 			<div class="cinematic-content">
-				<div id="intro"></div>
+				<div id="intro" style="letter-spacing: 4px;"></div>
+				<div id="strokes-text" style="letter-spacing: 2px; font-size: 0.9em; margin-top: 20px;"></div>
 			</div>
 		</div>
 		
@@ -69,25 +112,29 @@
 			  <div class="row">
 				<!-- Left side logo -->
 				<div class="col-xs-6">
-				  <div id="fh5co-logo"><a href="index.html">#HarithGotThisFar<strong>.</strong></a></div>
 				</div>
 		  
-				<!-- Right side play/pause music button -->
-				<div class="col-xs-6 text-right">
-				  <button id="music-btn" onclick="toggleMusic()" style="
-				  padding: 5px 10px;
-				  background: linear-gradient(135deg, #c7cbce, #99acb3);
-				  color: rgb(26, 25, 25);
-				  font-size: 14px;
-				  font-weight: bold;
-				  border: none;
-				  border-radius: 25px;
-				  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-				  cursor: pointer;
-				  transition: background 0.3s ease, transform 0.2s ease;
+				<!-- Fixed positioned play/pause music button -->
+				<button id="music-btn" onclick="toggleMusic()" style="
+				position: fixed;
+				top: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: 1000;
+				padding: 8px 20px;
+				background: #ffffff;
+				color: rgb(26, 25, 25);
+				font-size: 14px;
+				font-weight: bold;
+				border: 2px solid #333;
+				border-radius: 25px;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+				cursor: pointer;
+				transition: all 0.3s ease;
+				opacity: 0;
+				visibility: hidden;
 				">Play Music</button>
-				  <audio id="bg-music" src="bg-music.mp3" loop></audio>
-				</div>
+				<audio id="bg-music" src="bg-music.mp3" loop></audio>
 			  </div>
 			</div>
 			<script>
@@ -181,6 +228,53 @@
 						}
 					}, 3000);
 				});
+				
+				// Button visibility based on scroll direction
+				let lastScrollTop = 0;
+				let scrollDirection = 'none';
+				let buttonVisibilityTimeout;
+				let fadeTimeout;
+				
+				window.addEventListener('scroll', function() {
+					const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+					
+					// Determine scroll direction
+					if (scrollTop > lastScrollTop) {
+						scrollDirection = 'down';
+						// Scrolling down - fade out button slowly
+						clearTimeout(fadeTimeout);
+						musicBtn.style.opacity = '0';
+						fadeTimeout = setTimeout(() => {
+							musicBtn.style.visibility = 'hidden';
+						}, 800); // Wait 800ms for fade transition to complete
+					} else if (scrollTop < lastScrollTop) {
+						scrollDirection = 'up';
+						// Scrolling up - show button immediately
+						clearTimeout(fadeTimeout);
+						musicBtn.style.visibility = 'visible';
+						musicBtn.style.opacity = '1';
+					}
+					
+					lastScrollTop = scrollTop;
+					
+					// Clear existing timeout
+					if (buttonVisibilityTimeout) {
+						clearTimeout(buttonVisibilityTimeout);
+					}
+					
+					// Keep button visible for a short time after scrolling up
+					if (scrollDirection === 'up') {
+						buttonVisibilityTimeout = setTimeout(() => {
+							// Only hide if we're not at the top of the page
+							if (scrollTop > 100) {
+								musicBtn.style.opacity = '0';
+								setTimeout(() => {
+									musicBtn.style.visibility = 'hidden';
+								}, 800); // Wait for opacity transition to complete
+							}
+						}, 2000); // Keep visible for 2 seconds after scrolling up
+					}
+				});
 			  </script>
 		  </nav>
 		  
@@ -192,24 +286,25 @@
 				<div class="col-md-8 col-md-offset-2 text-center">
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<div style="text-align: center;">
-								<img src="couple-name.png" alt="Harith & Farah" style="max-width: 100%; height: auto; filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1)); width: 150%; ">
+							<div style="text-align: center; margin-top: -50px;">
+								<h1 style="
+									font-family: 'Kapakana', sans-serif;
+									font-size: 130px;
+									color: white;
+									margin: 0;
+									filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+									text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+									letter-spacing: 2px;
+									line-height: 0.8;
+								">Harith Azmir <br> & <br> Andi Farah</h1>
 							  </div>
-							  <h2 style="
-							  font-weight: bold; /* Make the text bold */
-							  font-size: 20px;
-							  margin-top: 15px;
-							  color: white; /* Set text color */
-							">
-							  We Are Getting Married !
-							</h2>
 							<!-- COUNTDOWN -->
 							<!-- Countdown Timer -->
 							<div id="countdown" style="
 							color: white;
 							font-size: 28px;
 							font-weight: 600;
-							margin-top: 30px;
+							margin-top: 20px;
 							display: flex;
 							justify-content: center;
 							align-items: center;
@@ -280,9 +375,11 @@
 							document.getElementById('minutes').innerHTML = `${minutes}`;
 
 							// Add unit labels below the numbers
-							document.getElementById('days').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Day${days !== 1 ? 's' : ''}</div>`;
-							document.getElementById('hours').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Hour${hours !== 1 ? 's' : ''}</div>`;
-							document.getElementById('minutes').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Min${minutes !== 1 ? 's' : ''}</div>`;
+							const isMobile = window.innerWidth <= 768;
+							const mobileMargin = isMobile ? '2px' : '8px';
+							document.getElementById('days').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: ${mobileMargin}; text-shadow: 0 0 1px #fff;">Day${days !== 1 ? 's' : ''}</div>`;
+							document.getElementById('hours').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: ${mobileMargin}; text-shadow: 0 0 1px #fff;">Hour${hours !== 1 ? 's' : ''}</div>`;
+							document.getElementById('minutes').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: ${mobileMargin}; text-shadow: 0 0 1px #fff;">Min${minutes !== 1 ? 's' : ''}</div>`;
 						}
 
 						updateCountdown(); // Initial run immediately
@@ -604,30 +701,36 @@ days
 		document.addEventListener('DOMContentLoaded', function() {
 			const intro = document.querySelector('.cinematic-intro');
 			const introText = document.getElementById('intro');
+			const strokesText = document.getElementById('strokes-text');
 			const audio = document.getElementById('bg-music');
 			const musicBtn = document.getElementById('music-btn');
 			
-			// Initialize TypeIt animation with exact timing sequence
+			// First TypeIt instance for "HarithGotThisFar"
 			new TypeIt(introText, {
-				strings: ["Harith", " + ", "Farah"],
-				speed: 80,
+				strings: ["HarithGotThisFar"],
+				speed: 140,
 				waitUntilVisible: true,
 				startDelay: 500,
-				afterString: function() {
-					// Add 700ms pause between each string
-					return new Promise(resolve => setTimeout(resolve, 700));
-				},
 				afterComplete: function() {
-					// Fade out intro after animation completes
+					// Start the second animation after a delay
 					setTimeout(() => {
-						intro.classList.add('fade-out');
-						// Start music when intro fades out
-						audio.play();
-						musicBtn.textContent = 'Pause Music';
-					}, 1000);
+						// Second TypeIt instance for "so you like The Strokes too ? :)"
+						new TypeIt(strokesText, {
+							strings: ["so you like The Strokes too ? :)"],
+							speed: 40,
+							waitUntilVisible: true,
+							afterComplete: function() {
+								// Fade out intro after both animations complete
+								setTimeout(() => {
+									intro.classList.add('fade-out');
+									// Don't automatically start music - let user control it
+									// Button will remain "Play Music" until user clicks it
+								}, 1000);
+							}
+						}).go();
+					}, 700);
 				}
-			})
-			.go();
+			}).go();
 		});
 	</script>
 
