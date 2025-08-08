@@ -200,7 +200,7 @@
 							  font-size: 20px;
 							  margin-top: 15px;
 							  color: white; /* Set text color */
-							  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3); /* Reduced glow */							">
+							">
 							  We Are Getting Married !
 							</h2>
 							<!-- COUNTDOWN -->
@@ -213,66 +213,48 @@
 							display: flex;
 							justify-content: center;
 							align-items: center;
-							gap: 15px;
+							gap: 40px;
 						">
 						<div class="countdown-item" style="
-							background-color: rgba(128, 128, 128, 0.3);
-							border-radius: 50%;
-							width: 90px;
-							height: 90px;
 							display: flex;
 							flex-direction: column;
 							justify-content: center;
 							align-items: center;
-							font-size: 22px;
-							font-weight: bold;
+							font-size: 48px;
+							font-weight: 300;
 							color: white;
-							text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-							border: 4px solid rgba(255, 255, 255, 0.5);
-							box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Glowing effect */
+							text-shadow: 0 0 2px #fff, 0 0 4px #fff;
 							" id="days">
 							Loading...
-							<div style="font-size: 16px;">Day</div>
+							<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Day</div>
 						</div>
 
 						<div class="countdown-item" style="
-							background-color: rgba(128, 128, 128, 0.3);
-							border-radius: 50%;
-							width: 90px;
-							height: 90px;
 							display: flex;
 							flex-direction: column;
 							justify-content: center;
 							align-items: center;
-							font-size: 22px;
-							font-weight: bold;
+							font-size: 48px;
+							font-weight: 300;
 							color: white;
-							text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-							border: 4px solid rgba(255, 255, 255, 0.5);
-							box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Glowing effect */
+							text-shadow: 0 0 2px #fff, 0 0 4px #fff;
 							" id="hours">
 							Loading...
-							<div style="font-size: 16px;">Hour</div>
+							<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Hour</div>
 						</div>
 
 						<div class="countdown-item" style="
-							background-color: rgba(128, 128, 128, 0.3);
-							border-radius: 50%;
-							width: 90px;
-							height: 90px;
 							display: flex;
 							flex-direction: column;
 							justify-content: center;
 							align-items: center;
-							font-size: 22px;
-							font-weight: bold;
+							font-size: 48px;
+							font-weight: 300;
 							color: white;
-							text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-							border: 4px solid rgba(255, 255, 255, 0.5);
-							box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Glowing effect */
+							text-shadow: 0 0 2px #fff, 0 0 4px #fff;
 							" id="minutes">
 							Loading...
-							<div style="font-size: 16px;">Min</div>
+							<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Min</div>
 						</div>
 						</div>
 
@@ -298,9 +280,9 @@
 							document.getElementById('minutes').innerHTML = `${minutes}`;
 
 							// Add unit labels below the numbers
-							document.getElementById('days').innerHTML += `<div style="font-size: 16px;">Day${days !== 1 ? 's' : ''}</div>`;
-							document.getElementById('hours').innerHTML += `<div style="font-size: 16px;">Hour${hours !== 1 ? 's' : ''}</div>`;
-							document.getElementById('minutes').innerHTML += `<div style="font-size: 16px;">Min${minutes !== 1 ? 's' : ''}</div>`;
+							document.getElementById('days').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Day${days !== 1 ? 's' : ''}</div>`;
+							document.getElementById('hours').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Hour${hours !== 1 ? 's' : ''}</div>`;
+							document.getElementById('minutes').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Min${minutes !== 1 ? 's' : ''}</div>`;
 						}
 
 						updateCountdown(); // Initial run immediately

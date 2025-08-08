@@ -789,7 +789,6 @@ form label {
 .fh5co-cover .display-tc h2 {
   font-size: 20px;
   margin-top: 15px;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
 }
 @media screen and (max-width: 480px) {
   #fh5co-header .display-tc h2,
