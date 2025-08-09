@@ -512,7 +512,8 @@ h1, h2, h3, h4, h5, h6, figure {
 .timeline > li > .timeline-panel {
   width: 40%;
   float: left;
-  border: 1px solid #1b1a1a;
+  border: 1px solid #000000;
+  background-color: rgba(255, 255, 255, 0.72);
   padding: 30px;
   position: relative;
   -webkit-border-radius: 4px;
@@ -526,10 +527,12 @@ h1, h2, h3, h4, h5, h6, figure {
   right: -15px;
   display: inline-block;
   border-top: 15px solid transparent;
-  border-left: 15px solid #201f1f;
-  border-right: 0 solid #6d6262;
+  border-left: 15px solid #000000; /* outer black border triangle */
+  border-right: 0 solid transparent;
   border-bottom: 15px solid transparent;
   content: " ";
+  /* also set right color for inverted variant */
+  border-right-color: #000000;
 }
 .timeline > li > .timeline-panel:after {
   position: absolute;
@@ -537,10 +540,12 @@ h1, h2, h3, h4, h5, h6, figure {
   right: -14px;
   display: inline-block;
   border-top: 14px solid transparent;
-  border-left: 14px solid #131212;
-  border-right: 0 solid #292727;
+  border-left: 14px solid rgba(255, 255, 255, 0.72); /* inner white triangle */
+  border-right: 0 solid transparent;
   border-bottom: 14px solid transparent;
   content: " ";
+  /* also set right color for inverted variant */
+  border-right-color: rgba(255, 255, 255, 0.72);
 }
 @media screen and (max-width: 480px) {
   .timeline > li > .timeline-panel {
@@ -1900,4 +1905,9 @@ body {
   #intro {
     font-size: 50px;
   }
+}
+
+/* Semi-transparent white background for all event cards */
+.event-wrap.animate-box {
+  background-color: rgba(255, 255, 255, 0.78) !important; /* see-through white */
 }

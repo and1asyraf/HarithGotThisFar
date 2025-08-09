@@ -115,25 +115,25 @@
 				</div>
 		  
 				<!-- Fixed positioned play/pause music button -->
-				<button id="music-btn" onclick="toggleMusic()" style="
-				position: fixed;
-				top: 20px;
-				left: 50%;
-				transform: translateX(-50%);
-				z-index: 1000;
-				padding: 8px 20px;
-				background: #ffffff;
-				color: rgb(26, 25, 25);
-				font-size: 14px;
-				font-weight: bold;
-				border: 2px solid #333;
-				border-radius: 25px;
-				box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-				cursor: pointer;
-				transition: all 0.3s ease;
-				opacity: 0;
-				visibility: hidden;
-				">Play Music</button>
+                <button id="music-btn" onclick="toggleMusic()" style="
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 2000;
+                padding: 8px 20px;
+                background: #ffffff;
+                color: rgb(26, 25, 25);
+                font-size: 14px;
+                font-weight: bold;
+                border: 2px solid #333;
+                border-radius: 25px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                opacity: 1;
+                visibility: visible;
+                ">Play Music</button>
 				<audio id="bg-music" src="bg-music.mp3" loop></audio>
 			  </div>
 			</div>
@@ -229,52 +229,7 @@
 					}, 3000);
 				});
 				
-				// Button visibility based on scroll direction
-				let lastScrollTop = 0;
-				let scrollDirection = 'none';
-				let buttonVisibilityTimeout;
-				let fadeTimeout;
-				
-				window.addEventListener('scroll', function() {
-					const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-					
-					// Determine scroll direction
-					if (scrollTop > lastScrollTop) {
-						scrollDirection = 'down';
-						// Scrolling down - fade out button slowly
-						clearTimeout(fadeTimeout);
-						musicBtn.style.opacity = '0';
-						fadeTimeout = setTimeout(() => {
-							musicBtn.style.visibility = 'hidden';
-						}, 800); // Wait 800ms for fade transition to complete
-					} else if (scrollTop < lastScrollTop) {
-						scrollDirection = 'up';
-						// Scrolling up - show button immediately
-						clearTimeout(fadeTimeout);
-						musicBtn.style.visibility = 'visible';
-						musicBtn.style.opacity = '1';
-					}
-					
-					lastScrollTop = scrollTop;
-					
-					// Clear existing timeout
-					if (buttonVisibilityTimeout) {
-						clearTimeout(buttonVisibilityTimeout);
-					}
-					
-					// Keep button visible for a short time after scrolling up
-					if (scrollDirection === 'up') {
-						buttonVisibilityTimeout = setTimeout(() => {
-							// Only hide if we're not at the top of the page
-							if (scrollTop > 100) {
-								musicBtn.style.opacity = '0';
-								setTimeout(() => {
-									musicBtn.style.visibility = 'hidden';
-								}, 800); // Wait for opacity transition to complete
-							}
-						}, 2000); // Keep visible for 2 seconds after scrolling up
-					}
-				});
+                // Always keep the Play Music button visible at the top
 			  </script>
 		  </nav>
 		  
