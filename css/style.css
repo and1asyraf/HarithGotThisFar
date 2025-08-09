@@ -1854,7 +1854,7 @@ body {
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: cover;
     background-color: #f0f7ff;
   }
   
