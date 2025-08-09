@@ -1833,6 +1833,11 @@ body {
   #intro {
     font-size: 60px;
   }
+
+  /* Make details image larger on mobile */
+  img.details-img {
+    max-width: 100% !important;
+  }
   
   /* Mobile section backgrounds - single image, minimal cropping */
   #fh5co-couple,
