@@ -17,6 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Rouge+Script&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Kapakana:wght@400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
 
 	<script src="https://cdn.jsdelivr.net/npm/simply-countdown@1.4.0/dist/simplyCountdown.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.js"></script>
@@ -254,7 +255,7 @@
 									text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 									letter-spacing: 2px;
 									line-height: 0.8;
-								">Harith Azmir <br> & <br> Andi Farah</h1>
+								">Muhammad Harith Azmir <br> & <br> Andi Farah Adila</h1>
 							  </div>
 							<!-- COUNTDOWN -->
 							<!-- Countdown Timer -->
@@ -279,7 +280,7 @@
 							text-shadow: 0 0 2px #fff, 0 0 4px #fff;
 							" id="days">
 							Loading...
-							<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Day</div>
+							<div style="font-family: 'MonteCarlo', cursive; font-size: 22px; font-weight: bold; margin-top: 2px; text-shadow: 0 0 1px #fff;">Day</div>
 						</div>
 
 						<div class="countdown-item" style="
@@ -293,7 +294,7 @@
 							text-shadow: 0 0 2px #fff, 0 0 4px #fff;
 							" id="hours">
 							Loading...
-							<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Hour</div>
+							<div style="font-family: 'MonteCarlo', cursive; font-size: 22px; font-weight: bold; margin-top: 2px; text-shadow: 0 0 1px #fff;">Hour</div>
 						</div>
 
 						<div class="countdown-item" style="
@@ -307,13 +308,13 @@
 							text-shadow: 0 0 2px #fff, 0 0 4px #fff;
 							" id="minutes">
 							Loading...
-							<div style="font-size: 22px; font-weight: bold; margin-top: 8px; text-shadow: 0 0 1px #fff;">Min</div>
+							<div style="font-family: 'MonteCarlo', cursive; font-size: 22px; font-weight: bold; margin-top: 2px; text-shadow: 0 0 1px #fff;">Min</div>
 						</div>
 						</div>
 
 						<script>
 						function updateCountdown() {
-							const eventDate = new Date('2025-11-29T00:00:00'); // Target date
+							const eventDate = new Date('2025-11-29T11:30:00'); // Target date - 11:30 AM
 							const now = new Date();
 							const diff = eventDate - now;
 
@@ -334,10 +335,10 @@
 
 							// Add unit labels below the numbers
 							const isMobile = window.innerWidth <= 768;
-							const mobileMargin = isMobile ? '2px' : '8px';
-							document.getElementById('days').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: ${mobileMargin}; text-shadow: 0 0 1px #fff;">Day${days !== 1 ? 's' : ''}</div>`;
-							document.getElementById('hours').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: ${mobileMargin}; text-shadow: 0 0 1px #fff;">Hour${hours !== 1 ? 's' : ''}</div>`;
-							document.getElementById('minutes').innerHTML += `<div style="font-size: 22px; font-weight: bold; margin-top: ${mobileMargin}; text-shadow: 0 0 1px #fff;">Min${minutes !== 1 ? 's' : ''}</div>`;
+							const mobileMargin = isMobile ? '1px' : '2px';
+							document.getElementById('days').innerHTML += `<div style="font-family: 'MonteCarlo', cursive; font-size: 22px; font-weight: bold; margin-top: ${mobileMargin}; text-shadow: 0 0 1px #fff;">Day${days !== 1 ? 's' : ''}</div>`;
+							document.getElementById('hours').innerHTML += `<div style="font-family: 'MonteCarlo', cursive; font-size: 22px; font-weight: bold; margin-top: ${mobileMargin}; text-shadow: 0 0 1px #fff;">Hour${hours !== 1 ? 's' : ''}</div>`;
+							document.getElementById('minutes').innerHTML += `<div style="font-family: 'MonteCarlo', cursive; font-size: 22px; font-weight: bold; margin-top: ${mobileMargin}; text-shadow: 0 0 1px #fff;">Min${minutes !== 1 ? 's' : ''}</div>`;
 						}
 
 						updateCountdown(); // Initial run immediately
@@ -361,9 +362,18 @@
                 <img class="details-img" src="details-new.png" alt="Wedding Event Details" style="max-width: 80%; height: auto;">
               </div>
 		
-			  <!-- 📷 QR Code (Replace src with your actual QR image) -->
-              <div style="margin: -50px 0;">
-				<img src="location-qr.png" alt="QR Code for Location" style="max-width: 200px; height: auto;">
+			  			  <!-- 📷 QR Code (Replace src with your actual QR image) -->
+               <div style="margin: -50px 0;">
+				<div style="
+					display: inline-block;
+					padding: 10px;
+					background-color: rgba(255, 255, 255, 0.3);
+					border-radius: 15px;
+					box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+					border: 2px solid rgba(255, 255, 255, 0.5);
+				">
+					<img src="location-new.png" alt="QR Code for Location" style="max-width: 200px; height: auto;">
+				</div>
 			  </div>
 	  
 			  <!-- 📍 Button to Get Directions -->
@@ -381,7 +391,7 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<span style="font-size: 25px;">The</span>
-					<h2 style="font-size: 50px;">Itinery</h2>
+					<h2 style="font-size: 50px;">Flow of Event</h2>
 				</div> 
 			</div>
 			<div class="row">
@@ -391,8 +401,8 @@
 							<div class="timeline-badge" style="background-image:url(arrival.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">Guest Arrival</h3>
-									<span class="date">3.00PM</span>
+									<h3 class="timeline-title">Arrival of Guests</h3>
+									<span class="date">11.30AM</span>
 								</div>
 								<div class="timeline-body">
 									<p>  </p>
@@ -403,8 +413,8 @@
 							<div class="timeline-badge" style="background-image:url(ceremony.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">Wedding Ceremony</h3>
-									<span class="date">4.00PM</span>
+									<h3 class="timeline-title">Arrival of Bride & Groom</h3>
+									<span class="date">12.00PM</span>
 								</div>
 								<div class="timeline-body">
 									<p>  </p>
@@ -427,8 +437,7 @@
 							<div class="timeline-badge" style="background-image:url(reception.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">Reception Dinner</h3>
-									<span class="date">7.00PM</span>
+									<h3 class="timeline-title">Speeches by Bride's Family</h3>
 								</div>
 								<div class="timeline-body">
 									<p>  </p>
@@ -439,8 +448,7 @@
 							<div class="timeline-badge" style="background-image:url(cutcake.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">Cake Cutting & Toast</h3>
-									<span class="date">9.00PM</span>
+									<h3 class="timeline-title">Cake Cutting</h3>
 								</div>
 								<div class="timeline-body">
 									<p>  </p>
@@ -451,8 +459,30 @@
 							<div class="timeline-badge" style="background-image:url(openfloor.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">Gas Open Floor</h3>
-									<span class="date">10.00PM</span>
+									<h3 class="timeline-title">Bridal Banquet</h3>
+								</div>
+								<div class="timeline-body">
+									<p>  </p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-inverted animate-box">
+							<div class="timeline-badge" style="background-image:url(openfloor.jpg);"></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3 class="timeline-title">Photography Session</h3>
+								</div>
+								<div class="timeline-body">
+									<p>  </p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-inverted animate-box">
+							<div class="timeline-badge" style="background-image:url(openfloor.jpg);"></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3 class="timeline-title">Reception Ends</h3>
+									<span class="date">4.00PM</span>
 								</div>
 								<div class="timeline-body">
 									<p>  </p>
@@ -472,7 +502,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<span style="font-size: 25px;">Book Your Stay</span>
 					<h2 style="font-size: 50px;">Nearby Hotels</h2>
-					<p style="color: black;">Recommended Accommodations for Our Guests near reception</p>
+					<p style="color: black;">Recommended accommodations near the reception</p>
 				</div>
 			</div>
 			<div class="row">
