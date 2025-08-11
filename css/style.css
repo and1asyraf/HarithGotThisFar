@@ -1888,3 +1888,68 @@ body {
     max-width: calc(100% - 40px) !important;
   }
 }
+
+/* Timeline content styling (replaces timeline-panel) */
+.timeline-content {
+  position: relative;
+  width: 46%;
+  padding: 20px 30px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.timeline-content:before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: transparent;
+  border-right: 0;
+}
+
+.timeline-content:after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-left-color: transparent;
+  border-right: 0;
+}
+
+.timeline-inverted .timeline-content {
+  float: right;
+}
+
+.timeline-inverted .timeline-content:before {
+  right: auto;
+  left: -10px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.timeline-inverted .timeline-content:after {
+  right: auto;
+  left: -8px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.timeline-content .timeline-title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.timeline-content .date {
+  color: #F14E95;
+  font-size: 14px;
+  font-weight: 400;
+}
