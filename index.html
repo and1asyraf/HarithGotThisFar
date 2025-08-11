@@ -35,6 +35,17 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
 	<style>
+		/* Desktop-only 3-line limit for the paragraph */
+		@media (min-width: 769px) {
+		  #fh5co-event .fh5co-heading p {
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 3;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		  }
+		}
+		
 		@media (max-width: 768px) {
 		  #fh5co-event .row {
 			display: flex;
@@ -359,26 +370,26 @@
 			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 			  <!-- 🕒 Wedding Details -->
               <div style="text-align: center;">
-                <img class="details-img" src="details-new.png" alt="Wedding Event Details" style="max-width: 80%; height: auto;">
+                <img class="details-img" src="detailsWed.png" alt="Wedding Event Details" style="max-width: 80%; height: auto;">
               </div>
 		
 			  			  <!-- 📷 QR Code (Replace src with your actual QR image) -->
                <div style="margin: -50px 0;">
 				<div style="
 					display: inline-block;
-					padding: 10px;
+					padding: 5px;
 					background-color: rgba(255, 255, 255, 0.3);
 					border-radius: 15px;
 					box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 					border: 2px solid rgba(255, 255, 255, 0.5);
 				">
-					<img src="location-new.png" alt="QR Code for Location" style="max-width: 200px; height: auto;">
+					<img src="Raia-Hotel-QR.png" alt="QR Code for Location" style="max-width: 125px; height: auto;">
 				</div>
 			  </div>
 	  
 			  <!-- 📍 Button to Get Directions -->
-              <a href="https://www.google.com/maps?q=Dewan+Serbaguna,+Jalan+Lintas,+Kota+Kinabalu" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-weight: bold; background-color: rgb(56, 53, 53); color: white; margin-top: 68px;">
-				Get Location
+              <a href="https://www.google.com/maps?q=Dewan+Serbaguna,+Jalan+Lintas,+Kota+Kinabalu" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-weight: bold; background-color: rgb(18, 35, 21); color: white; margin-top: 68px;">
+				Lost? Click Here!
 			  </a>
 			</div>
 		  </div>
@@ -425,8 +436,8 @@
 							<div class="timeline-badge" style="background-image:url(phoming.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">Photography & Mingling</h3>
-									<span class="date">5.30PM</span>
+									<h3 class="timeline-title">Speeches by Bride's Family</h3>
+									<span class="date"><br><br></span>
 								</div>
 								<div class="timeline-body">
 									<p>  </p>
@@ -434,10 +445,11 @@
 							</div>
 						</li>
 						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge" style="background-image:url(reception.jpg);"></div>
+							<div class="timeline-badge" style="background-image:url(cutcake.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">Speeches by Bride's Family</h3>
+									<h3 class="timeline-title">Cake Cutting</h3>
+									<span class="date"><br><br></span>
 								</div>
 								<div class="timeline-body">
 									<p>  </p>
@@ -445,21 +457,11 @@
 							</div>
 						</li>
 						<li class="animate-box">
-							<div class="timeline-badge" style="background-image:url(cutcake.jpg);"></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Cake Cutting</h3>
-								</div>
-								<div class="timeline-body">
-									<p>  </p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-inverted animate-box">
 							<div class="timeline-badge" style="background-image:url(openfloor.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title">Bridal Banquet</h3>
+									<span class="date"><br><br></span>
 								</div>
 								<div class="timeline-body">
 									<p>  </p>
@@ -471,13 +473,14 @@
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title">Photography Session</h3>
+									<span class="date"><br><br></span>
 								</div>
 								<div class="timeline-body">
 									<p>  </p>
 								</div>
 							</div>
 						</li>
-						<li class="timeline-inverted animate-box">
+						<li class="animate-box">
 							<div class="timeline-badge" style="background-image:url(openfloor.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
@@ -495,8 +498,74 @@
 		</div>
 	</div>
 
-	<!-- Insert Interactive Map --> 
-			<div id="fh5co-map" class="fh5co-bg" style="padding: 60px 0;">
+			<div id="fh5co-event" class="fh5co-bg" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+		  <div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+				<p style="color: black; font-size: 20px; font-weight: bold;">For our dear family and friends travelling to Kota Kinabalu and looking for recommendations, here's a little list of must-visit places and activities to make your trip extra special!</p>
+			  </div>
+		  </div>
+		  <div class="row">
+			
+			<!-- CARD 1 -->
+			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
+				<h3 style="color: black;">Gaya Street Night Market</h3>
+				<p style="color: black;">A bustling street market offering local food, handmade goods, and viral foods every Friday and Saturday night.</p>
+				<a href="https://www.google.com/maps?q=Gaya+Street+Night+Market,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Go Here!</a>
+			  </div>
+
+			  <!-- CARD 1 -->
+			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
+				<h3 style="color: black;">Gaya Street Sunday Market</h3>
+				<p style="color: black;">A bustling street market offering local food, handmade goods, and unique souvenirs every Sunday morning.</p>
+				<a href="https://www.google.com/maps?q=Gaya+Street+Night+Market,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Go Here!</a>
+			  </div>
+	  
+			<!-- CARD 2 -->
+			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
+				<h3 style="color: black;">Tanjung Aru Beach</h3>
+				<p style="color: black;">A beautiful beach with stunning sunsets, perfect for a relaxing day by the sea.</p>
+				<a href="https://www.google.com/maps?q=Tanjung+Aru+Beach,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Go Here!</a>
+			</div>
+			
+			<!-- CARD 3 -->
+			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
+				<h3 style="color: black;">Fatt Kee</h3>
+				<p style="color: black;">A popular restaurant known for its delicious fish soup, roasted meats and local Chinese dishes.</p>
+				<a href="https://www.google.com/maps?q=Fatt+Kee,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Go Here!</a>
+			</div>
+			
+			<!-- CARD 4 -->
+			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
+				<h3 style="color: black;">Handicraft Market</h3>
+				<p style="color: black;">A bustling marketplac eoffering local handicrafts, souvenirs, textiles, pearls, and traditional goods, popular with both tourists and locals for authentic keepsakes.</p>
+				<a href="https://www.google.com/maps/place/Handicraft+Market/@5.9803681,116.0685563,17z/data=!4m10!1m2!2m1!1sHandicraft+Market!3m6!1s0x323b698e19648a97:0x9ea986320b1b2738!8m2!3d5.981244!4d116.0717725!15sChFIYW5kaWNyYWZ0IE1hcmtldFoTIhFoYW5kaWNyYWZ0IG1hcmtldJIBDG5pZ2h0X21hcmtldJoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSWGMzSjZlakYzUlJBQqoBORABMh4QASIaxB4cgp0mVkDOaKyq74pptO_z1kcyY0yDZysyFRACIhFoYW5kaWNyYWZ0IG1hcmtldOABAPoBBAgAEEw!16s%2Fg%2F11bwf79sm3?entry=ttu&g_ep=EgoyMDI1MDgwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-primary">Go Here!</a>
+			</div>
+			
+			<!-- CARD 5 -->
+			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
+				<h3 style="color: black;">Jesselton Point</h3>
+				<p style="color: black;">A waterfront area where you can catch ferries to nearby islands and enjoy scenic views.</p>
+				<a href="https://www.google.com/maps?q=Jesselton+Point,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Go Here!</a>
+			</div>
+			
+			<!-- CARD 6 -->
+			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
+				<h3 style="color: black;">Mari-Mari Cultural Village</h3>
+				<p style="color: black;">A cultural village in the rainforest showcasing traditional houses, food, and dances of Sabah's ethnic tribes.</p>
+				<a href="https://www.google.com/maps?q=Mari+Mari+Cultural+Village+Kota+Kinabalu" target="_blank" class="btn btn-primary">Go Here!</a>
+			</div>
+
+			<!-- CARD 7 -->
+			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
+				<h3 style="color: black;">Island Hopping</h3>
+				<p style="color: black;">Five tropical islands near Kota Kinabalu with white-sand beaches, coral-rich snorkeling spots, and short jungle trails, just a short boat ride from the city.</p>
+				<a href="https://www.google.com/maps/place/Jesselton+Point+Ferry+Terminal/@5.9901534,116.0765078,17z/data=!3m1!4b1!4m6!3m5!1s0x323b6987828003c9:0x2127a85ba3de75ca!8m2!3d5.9901534!4d116.0790827!16s%2Fg%2F1pzt4vmmg?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-primary">Go Here!</a>
+			</div> 
+		  </div> 
+		</div> 
+
+	  <!-- Insert Interactive Map --> 
+	  <div id="fh5co-map" class="fh5co-bg" style="padding: 60px 0;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
@@ -514,68 +583,6 @@
 	<!-- Add Leaflet JavaScript -->
 	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 	<script src="js/map.js"></script>
-
-			<div id="fh5co-event" class="fh5co-bg" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
-		  <div class="row">
-			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-				<span style="color: black; font-size: 25px;">Places of Recommendation</span>
-				<h2 style="color: black; font-size: 50px;">Kota Kinabalu</h2>
-			  </div>
-		  </div>
-		  <div class="row">
-			
-			<!-- CARD 1 -->
-			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
-				<h3 style="color: black;">Gaya Street Night Market</h3>
-				<p style="color: black;">A bustling street market offering local food, handmade goods, and viral foods every Friday and Saturday night.</p>
-				<a href="https://www.google.com/maps?q=Gaya+Street+Night+Market,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
-			  </div>
-
-			  <!-- CARD 1 -->
-			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
-				<h3 style="color: black;">Gaya Street Sunday Market</h3>
-				<p style="color: black;">A bustling street market offering local food, handmade goods, and unique souvenirs every Sunday morning.</p>
-				<a href="https://www.google.com/maps?q=Gaya+Street+Night+Market,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
-			  </div>
-	  
-			<!-- CARD 2 -->
-			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
-				<h3 style="color: black;">Tanjung Aru Beach</h3>
-				<p style="color: black;">A beautiful beach with stunning sunsets, perfect for a relaxing day by the sea.</p>
-				<a href="https://www.google.com/maps?q=Tanjung+Aru+Beach,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
-			</div>
-			
-			<!-- CARD 3 -->
-			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
-				<h3 style="color: black;">Fatt Kee</h3>
-				<p style="color: black;">A popular restaurant known for its delicious fish soup, roasted meats and local Chinese dishes.</p>
-				<a href="https://www.google.com/maps?q=Fatt+Kee,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
-			</div>
-			
-			<!-- CARD 4 -->
-			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
-				<h3 style="color: black;">Handicraft Market</h3>
-				<p style="color: black;">A bustling marketplac eoffering local handicrafts, souvenirs, textiles, pearls, and traditional goods, popular with both tourists and locals for authentic keepsakes.</p>
-				<a href="https://www.google.com/maps/place/Handicraft+Market/@5.9803681,116.0685563,17z/data=!4m10!1m2!2m1!1sHandicraft+Market!3m6!1s0x323b698e19648a97:0x9ea986320b1b2738!8m2!3d5.981244!4d116.0717725!15sChFIYW5kaWNyYWZ0IE1hcmtldFoTIhFoYW5kaWNyYWZ0IG1hcmtldJIBDG5pZ2h0X21hcmtldJoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSWGMzSjZlakYzUlJBQqoBORABMh4QASIaxB4cgp0mVkDOaKyq74pptO_z1kcyY0yDZysyFRACIhFoYW5kaWNyYWZ0IG1hcmtldOABAPoBBAgAEEw!16s%2Fg%2F11bwf79sm3?entry=ttu&g_ep=EgoyMDI1MDgwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-primary">Get Directions</a>
-			</div>
-			
-			<!-- CARD 5 -->
-			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
-				<h3 style="color: black;">Jesselton Point</h3>
-				<p style="color: black;">A waterfront area where you can catch ferries to nearby islands and enjoy scenic views.</p>
-				<a href="https://www.google.com/maps?q=Jesselton+Point,+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
-			</div>
-			
-			<!-- CARD 6 -->
-			<div class="event-wrap animate-box" style="border: 2px solid black; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; height: 300px;">
-				<h3 style="color: black;">Mari-Mari Cultural Village</h3>
-				<p style="color: black;">A cultural village in the rainforest showcasing traditional houses, food, and dances of Sabah's ethnic tribes.</p>
-				<a href="https://www.google.com/maps?q=Mari+Mari+Cultural+Village+Kota+Kinabalu" target="_blank" class="btn btn-primary">Get Directions</a>
-			</div>
-		  </div>
-		</div>
-
-	  <!-- Insert FAQ -->
 
 	  <!-- Credit Section -->
 		<footer id="fh5co-credit" style="padding: 40px 20px; text-align: center;">
