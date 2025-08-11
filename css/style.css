@@ -512,50 +512,30 @@ h1, h2, h3, h4, h5, h6, figure {
 .timeline > li > .timeline-panel {
   width: 40%;
   float: left;
-  border: 1px solid #000000;
-  background-color: rgba(255, 255, 255, 0.72);
+  border: none;
+  background-color: transparent;
   padding: 30px;
   position: relative;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
 }
 .timeline > li > .timeline-panel:before {
-  position: absolute;
-  top: 80px;
-  right: -15px;
-  display: inline-block;
-  border-top: 15px solid transparent;
-  border-left: 15px solid #000000; /* outer black border triangle */
-  border-right: 0 solid transparent;
-  border-bottom: 15px solid transparent;
-  content: " ";
-  /* also set right color for inverted variant */
-  border-right-color: #000000;
+  display: none;
 }
 .timeline > li > .timeline-panel:after {
-  position: absolute;
-  top: 81px;
-  right: -14px;
-  display: inline-block;
-  border-top: 14px solid transparent;
-  border-left: 14px solid rgba(255, 255, 255, 0.72); /* inner white triangle */
-  border-right: 0 solid transparent;
-  border-bottom: 14px solid transparent;
-  content: " ";
-  /* also set right color for inverted variant */
-  border-right-color: rgba(255, 255, 255, 0.72);
+  display: none;
 }
 @media screen and (max-width: 480px) {
   .timeline > li > .timeline-panel {
     width: 75% !important;
   }
   .timeline > li > .timeline-panel:before {
-    top: 30px;
+    display: none;
   }
   .timeline > li > .timeline-panel:after {
-    top: 31px;
+    display: none;
   }
 }
 .timeline > li > .timeline-badge {
@@ -591,16 +571,10 @@ h1, h2, h3, h4, h5, h6, figure {
   float: right;
 }
 .timeline > li.timeline-inverted > .timeline-panel:before {
-  border-left-width: 0;
-  border-right-width: 15px;
-  left: -15px;
-  right: auto;
+  display: none;
 }
 .timeline > li.timeline-inverted > .timeline-panel:after {
-  border-left-width: 0;
-  border-right-width: 14px;
-  left: -14px;
-  right: auto;
+  display: none;
 }
 
 .timeline-title {
@@ -646,17 +620,11 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 
   ul.timeline > li > .timeline-panel:before {
-    border-left-width: 0;
-    border-right-width: 15px;
-    left: -15px;
-    right: auto;
+    display: none;
   }
 
   ul.timeline > li > .timeline-panel:after {
-    border-left-width: 0;
-    border-right-width: 14px;
-    left: -14px;
-    right: auto;
+    display: none;
   }
 }
 
@@ -1873,83 +1841,15 @@ body {
   background-color: rgba(255, 255, 255, 0.78) !important; /* see-through white */
 }
 
-/* Desktop view: Prevent cards from touching screen horizontally */
+/* Desktop view: Alternate timeline heading alignment */
 @media (min-width: 769px) {
-  .event-wrap.animate-box {
-    margin-left: 20px !important;
-    margin-right: 20px !important;
-    max-width: calc(100% - 40px) !important;
+  /* Regular timeline items (left side) - right align text */
+  .timeline > li > .timeline-panel > .timeline-heading {
+    text-align: right;
   }
   
-  /* Container for better spacing */
-  #fh5co-event .row {
-    margin-left: 20px !important;
-    margin-right: 20px !important;
-    max-width: calc(100% - 40px) !important;
+  /* Inverted timeline items (right side) - left align text */
+  .timeline > li.timeline-inverted > .timeline-panel > .timeline-heading {
+    text-align: left;
   }
-}
-
-/* Timeline content styling (replaces timeline-panel) */
-.timeline-content {
-  position: relative;
-  width: 46%;
-  padding: 20px 30px;
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-  border: none;
-}
-
-.timeline-content:before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  right: -10px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-left-color: transparent;
-  border-right: 0;
-}
-
-.timeline-content:after {
-  content: '';
-  position: absolute;
-  top: 24px;
-  right: -8px;
-  width: 0;
-  height: 0;
-  border: 8px solid transparent;
-  border-left-color: transparent;
-  border-right: 0;
-}
-
-.timeline-inverted .timeline-content {
-  float: right;
-}
-
-.timeline-inverted .timeline-content:before {
-  right: auto;
-  left: -10px;
-  border-left-color: transparent;
-  border-right-color: transparent;
-}
-
-.timeline-inverted .timeline-content:after {
-  right: auto;
-  left: -8px;
-  border-left-color: transparent;
-  border-right-color: transparent;
-}
-
-.timeline-content .timeline-title {
-  margin-bottom: 10px;
-  font-size: 18px;
-  line-height: 1.2;
-}
-
-.timeline-content .date {
-  color: #F14E95;
-  font-size: 14px;
-  font-weight: 400;
 }
