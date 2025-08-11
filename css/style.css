@@ -1809,7 +1809,8 @@ body {
 
   /* Make details image larger on mobile */
   img.details-img {
-    max-width: 100% !important;
+    max-width: 100% !important; 
+    align-items: center;
   }
   
   /* Remove individual section backgrounds on mobile to use single fixed background */
@@ -1838,18 +1839,46 @@ body {
 
 /* Semi-transparent white background for all event cards */
 .event-wrap.animate-box {
-  background-color: rgba(255, 255, 255, 0.78) !important; /* see-through white */
+  background-color: rgba(255, 255, 255, 0.6) !important; /* see-through white with reduced opacity */
 }
 
-/* Desktop view: Alternate timeline heading alignment */
-@media (min-width: 769px) {
-  /* Regular timeline items (left side) - right align text */
-  .timeline > li > .timeline-panel > .timeline-heading {
-    text-align: right;
+  /* Desktop view: Alternate timeline heading alignment */
+  @media (min-width: 769px) {
+    /* Regular timeline items (left side) - right align text */
+    .timeline > li > .timeline-panel > .timeline-heading {
+      text-align: right;
+    }
+    
+    /* Inverted timeline items (right side) - left align text */
+    .timeline > li.timeline-inverted > .timeline-panel > .timeline-heading {
+      text-align: left;
+    }
   }
-  
-  /* Inverted timeline items (right side) - left align text */
-  .timeline > li.timeline-inverted > .timeline-panel > .timeline-heading {
-    text-align: left;
+
+  /* Mobile view: Left-align all timeline headings */
+  @media (max-width: 768px) {
+    .timeline-heading {
+      text-align: left !important;
+    }
   }
-}
+
+  /* Desktop view: Prevent cards from touching screen horizontally */
+  @media (min-width: 769px) {
+    .event-wrap.animate-box {
+      margin-left: 20px !important;
+      margin-right: 20px !important;
+      max-width: calc(100% - 40px) !important;
+    }
+
+    /* Container for better spacing */
+    #fh5co-event .row {
+      margin-left: 20px !important;
+      margin-right: 20px !important;
+      max-width: calc(100% - 40px) !important;
+    }
+
+    /* Make details image smaller on desktop */
+    img.details-img {
+      max-width: 80% !important;
+    }
+  }
