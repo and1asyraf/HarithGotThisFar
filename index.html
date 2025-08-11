@@ -95,7 +95,10 @@
 	
 	
 	</head>
-	<body style="background-image: url('mobile-bg.png'); background-size: cover; background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-color: #f0f7ff;">
+	<body style="background-color: #f0f7ff;">
+		<!-- iOS-friendly fixed background -->
+		<div id="mobile-background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('mobile-bg.png'); background-size: cover; background-position: top center; background-repeat: no-repeat; z-index: -1; display: none;"></div>
+		
 		<div class="cinematic-intro">
 			<div class="cinematic-background"></div>
 			<div class="cinematic-content">
@@ -686,6 +689,74 @@ days
 		});
 	</script>
 
+	<script>
+		// iOS-friendly mobile background handling
+		document.addEventListener('DOMContentLoaded', function() {
+			const mobileBg = document.getElementById('mobile-background');
+			const isMobile = window.innerWidth <= 768;
+			const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+			const devicePixelRatio = window.devicePixelRatio || 1;
+			
+			if (isMobile) {
+				mobileBg.style.display = 'block';
+				
+				// iOS-specific optimizations
+				if (isIOS) {
+					// Force hardware acceleration and prevent zoom issues
+					mobileBg.style.transform = 'translateZ(0)';
+					mobileBg.style.webkitTransform = 'translateZ(0)';
+					mobileBg.style.backfaceVisibility = 'hidden';
+					mobileBg.style.webkitBackfaceVisibility = 'hidden';
+					
+					// Use cover with optimized positioning
+					mobileBg.style.backgroundSize = 'cover';
+					mobileBg.style.backgroundPosition = 'center center';
+					
+					// Add a fallback background color
+					mobileBg.style.backgroundColor = '#f0f7ff';
+					
+					// Force repaint to ensure proper rendering
+					mobileBg.style.willChange = 'transform';
+					mobileBg.offsetHeight; // Force reflow
+					
+					// Try to prevent iOS Safari from rasterizing the background
+					mobileBg.style.webkitPerspective = '1000px';
+					mobileBg.style.perspective = '1000px';
+					
+					// For high-DPR displays, try to use a different approach
+					if (devicePixelRatio >= 2) {
+						// Use a different positioning strategy for high-DPR displays
+						mobileBg.style.backgroundPosition = 'center top';
+						mobileBg.style.backgroundSize = 'cover';
+						
+						// Add a subtle transform to force GPU rendering
+						mobileBg.style.transform = 'translateZ(0) scale(1.001)';
+						mobileBg.style.webkitTransform = 'translateZ(0) scale(1.001)';
+					}
+				}
+			}
+			
+			// Handle orientation changes
+			window.addEventListener('orientationchange', function() {
+				setTimeout(function() {
+					if (window.innerWidth <= 768) {
+						mobileBg.style.display = 'block';
+					} else {
+						mobileBg.style.display = 'none';
+					}
+				}, 100);
+			});
+			
+			// Handle resize
+			window.addEventListener('resize', function() {
+				if (window.innerWidth <= 768) {
+					mobileBg.style.display = 'block';
+				} else {
+					mobileBg.style.display = 'none';
+				}
+			});
+		});
+	</script>
 
 	</body>
 </html>
