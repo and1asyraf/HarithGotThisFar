@@ -1783,7 +1783,6 @@ body {
   font-size: 72px;
   font-weight: 400;
   color: #ffffff;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
   line-height: 1.2;
   text-align: center;
   opacity: 0;
@@ -1859,6 +1858,14 @@ body {
   @media (max-width: 768px) {
     .timeline-heading {
       text-align: left !important;
+    }
+    
+    /* Ensure text content doesn't touch screen edges on mobile */
+    .col-md-8.col-md-offset-2.text-center.fh5co-heading.animate-box p {
+      margin-left: 20px !important;
+      margin-right: 20px !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
     }
   }
 
