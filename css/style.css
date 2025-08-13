@@ -489,7 +489,7 @@ h1, h2, h3, h4, h5, h6, figure {
   position: absolute;
   content: " ";
   width: 1px;
-  background-color: #d4d4d4;
+  background-color: #000000;
   left: 50%;
   margin-left: 0px;
 }
@@ -559,6 +559,7 @@ h1, h2, h3, h4, h5, h6, figure {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
+  border: 2px solid #000000;
 }
 @media screen and (max-width: 480px) {
   .timeline > li > .timeline-badge {
@@ -1866,6 +1867,21 @@ body {
       margin-right: 20px !important;
       padding-left: 15px !important;
       padding-right: 15px !important;
+    }
+    
+    /* Add left margin to timeline elements in mobile view */
+    .timeline > li > .timeline-badge {
+      margin-left: 15px !important;
+    }
+    
+    .timeline > li > .timeline-panel {
+      margin-left: 15px !important;
+    }
+    
+    /* Adjust the timeline line position for mobile and make it black */
+    .timeline:before {
+      margin-left: -29px !important;
+      background-color: #000000 !important;
     }
   }
 
