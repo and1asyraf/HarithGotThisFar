@@ -1878,11 +1878,54 @@ body {
       margin-left: 15px !important;
     }
     
-    /* Adjust the timeline line position for mobile and make it black */
-    .timeline:before {
-      margin-left: -29px !important;
-      background-color: #000000 !important;
-    }
+            /* Hide the timeline line in mobile view */
+        .timeline:before {
+            display: none !important;
+        }
+    
+            /* Reposition timeline titles and dates under circular frames in mobile view */
+        .timeline > li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          margin-bottom: 40px;
+          position: relative;
+        }
+        
+        .timeline > li > .timeline-badge {
+          order: 1;
+          margin-bottom: 15px;
+          margin-left: 0 !important;
+          position: static !important;
+          left: auto !important;
+          top: auto !important;
+        }
+        
+        .timeline > li > .timeline-panel {
+          order: 2;
+          margin-left: 0 !important;
+          width: 100%;
+          max-width: 300px;
+          position: static !important;
+          left: auto !important;
+          top: auto !important;
+        }
+        
+        .timeline > li > .timeline-panel > .timeline-heading {
+          text-align: center !important;
+        }
+        
+        .timeline > li > .timeline-panel > .timeline-heading > .timeline-title {
+          margin-bottom: 5px;
+          font-style: italic !important;
+        }
+        
+        .timeline > li > .timeline-panel > .timeline-heading > .date {
+          display: block;
+          margin-top: 5px;
+          font-style: normal !important;
+        }
   }
 
   /* Desktop view: Prevent cards from touching screen horizontally */
