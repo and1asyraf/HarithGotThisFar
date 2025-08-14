@@ -98,6 +98,12 @@
 		  #countdown .countdown-item div {
 			font-size: 16px !important;
 		  }
+		  /* Mobile About Us image sizing */
+		  .about-us-image {
+			max-width: 120% !important;
+			margin-left: -10%;
+			margin-right: -10%;
+		  }
 		}
 	  </style>
 
@@ -267,7 +273,7 @@
 								">Muhammad Harith Azmir <br> & <br> Andi Farah Adila</h1>
 							  </div>
 							<!-- COUNTDOWN -->
-							<!-- Countdown Timer -->
+							<!-- Countdown Timer -->	
 							<div id="countdown" style="
 							color: white;
 							font-size: 28px;
@@ -596,15 +602,20 @@
 	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 	<script src="js/map.js"></script>
 
-	  <!-- Credit Section -->
+	<!-- About Us Section -->
+	<div style="text-align: center; padding: 40px 20px;">
+		<img src="AboutUS.png" alt="About Us" style="max-width: 100%; height: auto; border-radius: 10px;" class="about-us-image">
+	</div>
+
+	<!-- Credit Section -->
 		<footer id="fh5co-credit" style="padding: 40px 20px; text-align: center;">
 			<div style="max-width: 400px; margin: 0 auto;">
-			<img src="my-pic.jpg" alt="Developer Photo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.2); margin-bottom: 20px;">
+			<img src="myPhoto.png" alt="Developer Photo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.2); margin-bottom: 20px;">
 			<p style="font-size: 18px; color: #333; font-weight: 500;">
 				This was created by the bride's brother, <br><strong>hire him lol</strong>
 			</p>
 			</div>
-		</footer>
+		</footer> 
 
 		<div id="petal-container"></div>
 
